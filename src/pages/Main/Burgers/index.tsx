@@ -1,24 +1,11 @@
-import { useState, useEffect } from "react";
-import Head from "../../../components/Head";
-import SnackTitle from "../../../components/SnackTitle";
-import Snacks from "../../../components/Snacks";
-import { getBurgers } from '../../../services/api';
+import { useSnack } from "../../../hooks/useSnack";
 
-import { SnackData } from "../../../interfaces/SnackData";
+import Head from "../../../components/Head";
+import Snacks from "../../../components/Snacks";
+import SnackTitle from "../../../components/SnackTitle";
 
 export default function Burguers() {
-
-    const [burgers, setBurgers] = useState<SnackData[]>([]);
-
-    useEffect(() => {
-        (async () => {
-            const burgerRequest = await getBurgers()
-
-            setBurgers(burgerRequest.data)
-        })()
-    }, []);
-
-
+    const { burgers } = useSnack();
 
     return (
         <>
