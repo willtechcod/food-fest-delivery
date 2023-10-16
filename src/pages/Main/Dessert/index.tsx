@@ -1,13 +1,17 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
-import Head from "../../../components/Head"
-import SnackTitle from "../../../components/SnackTitle"
-import Snacks from "../../../components/Snacks"
-import { getDesserts } from "../../../services/api"
+import Head from "../../../components/Head";
+
+import { SnackData } from "../../../interfaces/SnackData";
+
+import SnackTitle from "../../../components/SnackTitle";
+import Snacks from "../../../components/Snacks";
+
+import { getDesserts } from "../../../services/api";
 
 export default function Dessert() {
 
-    const [desserts, setDesserts] = useState([])
+    const [desserts, setDesserts] = useState<SnackData[]>([]);
 
     useEffect(() => {
         (async () => {
@@ -15,7 +19,7 @@ export default function Dessert() {
 
             setDesserts(dessertRequest.data)
         })()
-    }, [])
+    }, []);
 
     return (
         <>
@@ -23,5 +27,5 @@ export default function Dessert() {
             <SnackTitle>Sobremesas</SnackTitle>
             <Snacks snacks={desserts}></Snacks>
         </>
-    )
+    );
 }

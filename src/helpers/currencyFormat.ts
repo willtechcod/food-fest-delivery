@@ -1,5 +1,3 @@
-
-
 export default function currencyFormat(currency: number) {
     return new Intl.NumberFormat('pt-BR', {
         style: 'currency',
